@@ -45,10 +45,10 @@ public class DoSomeThingWithCookiesIT extends SeleniumTestWrapper {
         assertThat(cookies.isCookiePresent("logged_in"), is(true));
 
         // delete certain cookie
-        cookies.deleteCookieNamed("logged_in");
+        cookies.deleteCookieNamed("log_in");
 
         // check if cookie was deleted successfully
-        assertThat(cookies.isCookiePresent("logged_in"), is(false));
+        assertThat(cookies.isCookiePresent("log_in"), is(false));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class DoSomeThingWithCookiesIT extends SeleniumTestWrapper {
         assertThat(cookies.getAllCookies().size(), greaterThan(0));
 
         // delete all localStorage
-        cookies.deleteAllCookies();
+        cookies.deleteCookies();
 
         // check if number of localStorage is 0
         assertThat(cookies.getAllCookies().size(), is(0));
